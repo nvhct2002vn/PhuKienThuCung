@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/layout/index::dynamic(~{::view})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div th:fragment="view" class="row">
+		<div class="row">
+			<div class="col-md-5 col-12 m-auto">
+				<form>
+					<div>
+						<label>Name</label> <input ng-mode="cate.name" class="form-control mb-3" />
+					</div>
+					<div>
+						<label>Status</label>
+						<div class="form-check">
+							<input ng-mode="cate.status" class="form-check-input" type="radio" checked="checked" value="1"
+								name="flexRadioDefault" id="flexRadioDefault1">
+							<label class="form-check-label" for="flexRadioDefault1">
+								Hoạt động </label>
+						</div>
+						<div class="form-check">
+							<input ng-mode="cate.status" class="form-check-input" type="radio" value="0" name="flexRadioDefault"
+								id="flexRadioDefault2"> <label class="form-check-label" for="flexRadioDefault2"> Ngưng
+								hoạt động </label>
+						</div>
+					</div>
+					<div class="text-center">
+						<button class="btn btn-success">Create</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<table class="table table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Status</th>
+					<th scope="col" colspan="2">Thao Tác</th>
+				</tr>
+				
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+</html>

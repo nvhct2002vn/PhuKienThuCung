@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/layout/index::dynamic(~{::view})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div th:fragment="view">
+		<!-- slide bar -->
+		<div id="carouselExampleControls" class="carousel slide slide-show-img" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="https://file.vfo.vn/hinh/2015/12/meo-con-dang-yeu-lam-hinh-nen-may-tinh-4.jpg"
+						class="d-block w-100" alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="https://file.vfo.vn/hinh/2015/12/meo-con-dang-yeu-lam-hinh-nen-may-tinh-8.jpg"
+						class="d-block w-100" alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="https://file.vfo.vn/hinh/2015/12/meo-con-dang-yeu-lam-hinh-nen-may-tinh-11.jpg"
+						class="d-block w-100" alt="...">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<div class="m-3">
+			<h4>Sản phẩm mới</h4>
+		</div>
+		<div class="row">
+			<article class="col-md-9">
+				<div class="row m-0">
+					<div class="card col-md-4 m-3" style="width: 18rem;">
+						<img src="..." class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+							<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+								ngay</a>
+						</div>
+					</div>
+				</div>
+			</article>
+			<!--category -->
+			<aside th:insert="~{/views/layout/category ::listCate}" class="col-md-3"></aside>
+		</div>
+	</div>
+</body>
+
+</html>

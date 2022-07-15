@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	th:replace="~{/views/layout/index::dynamic(~{::view})}">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<div th:fragment="view" class="row">
+		<aside th:insert="~{/views/layout/category ::listCate}"
+			class="col-md-3"></aside>
+		<div th:object="${product}" class=" col-md-9 row my-3">
+			<div class="border border-dark col-md-6 m-auto p-3"
+				style="width: 18rem;">
+				<img th:src="@{|/assets/images/*{image}|}" width="100%"
+					alt="[[*{name}]]">
+			</div>
+			<div class="col-md-6">
+				<p>[[*{name}]]</p>
+				<p>Số lượng còn lại: [[*{quantity}]]</p>
+				<form action="">
+					<label class="d-inline">Số lượng:</label> <input
+						class="form-control d-inline" type="number">
+					<p>Giá sản phẩm: [[*{#numbers.formatDecimal(price, 0, 'COMMA',
+						0, 'POINT')}]] VND</p>
+				</form>
+				<button th:attr="ng-click=@{|cart.add(*{id})|}"
+					class="btn btn-warning d-flex justify-content-center m-auto">Thêm
+					vào rỏ hàng</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

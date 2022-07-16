@@ -44,5 +44,37 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
             }
         }
     $scope.cart.loadFromLocalStorage();
+
+    $scope.order = {
+        createDate: new Date,
+        phoneNumber: null,
+        address: null,
+        account: { username: $("#username").text() },
+
+        //lấy toàn bộ mặt hàng trong rỏ hàng
+        get orderDetails() {
+            return $scope.cart.items.map(item => {
+                return {
+                    product: { id: item.id },
+                    price: item.price,
+                    quantity: item.qty
+                }
+            });
+        },
+        purchase() {
+            var order = angular.copy(this)
+            $http.post("/rest/orders", order).then((result) => {
+                alert("Đặt hàng thành công");
+                $scope.cart.clear();
+                location.href = "/order/detail/" + result.data.id;
+            }).catch((err) => {
+                alert("Lỗi đặt hàng");
+                console.log(err);
+            });
+            console.log(order);
+        }
+    }
+
+
 })
 

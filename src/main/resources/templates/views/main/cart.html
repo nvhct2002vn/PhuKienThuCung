@@ -32,20 +32,30 @@
 			</tbody>
 		</table>
 		<div class="mt-3">
-			<button class="btn btn-warning" ng-click="cart.clear()">Clear</button>
+			<button class="btn btn-warning my-3" ng-click="cart.clear()">Clear</button>
 		</div>
-		<form action="">
+		<form>
+			<div class="row text-center">
+				<div class="col-md-6 col-12">
+					<label>username</label>
+					<div class="form-control" id="username">[[${#authentication.name}]]</div>
+				</div>
+				<div class="col-md-6 col-12">
+					<label>createDate</label>
+					<div class="form-control">{{order.createDate | date:'dd-MM-yyyy'}}</div>
+				</div>
+			</div>
 			<div>
 				<label for="address">Address</label>
-				<input class="form-control mb-3" type="text" id="address" required>
+				<input class="form-control mb-3 text-center" type="text" ng-model="order.address" required>
 			</div>
 			<div>
 				<label for="phoneNumber">Phone number</label>
-				<input class="form-control mb-3" type="text" id="phoneNumber" required>
+				<input class="form-control mb-3 text-center" type="text" ng-model="order.phoneNumber" required>
 			</div>
 			<p>Tổng tiền: {{cart.amount}} VND</p>
 			<div class="text-center my-3">
-				<a th:href="@{/order/checkout}" class="btn btn-warning">Check out</a>
+				<button ng-click=order.purchase() class="btn btn-warning">Check out</button>
 			</div>
 		</form>
 	</div>

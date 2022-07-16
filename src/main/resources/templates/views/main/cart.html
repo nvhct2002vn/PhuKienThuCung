@@ -44,8 +44,8 @@
 				<input class="form-control mb-3" type="text" id="phoneNumber" required>
 			</div>
 			<p>Tổng tiền: {{cart.amount}} VND</p>
-			<div class="text-center mt-3">
-				<Button class="btn btn-warning">Check out</Button>
+			<div class="text-center my-3">
+				<a th:href="@{/order/checkout}" class="btn btn-warning">Check out</a>
 			</div>
 		</form>
 	</div>

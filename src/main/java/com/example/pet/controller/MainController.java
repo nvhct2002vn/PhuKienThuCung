@@ -9,5 +9,9 @@ public class MainController {
 	public String home() {
 		return "/views/main/home";
 	}
+	@RequestMapping("/login-form")
+	public String login() {
+		return "/views/main/login";
+	}
 	
 }

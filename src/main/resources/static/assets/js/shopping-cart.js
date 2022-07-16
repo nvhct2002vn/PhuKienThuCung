@@ -37,7 +37,8 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
                 var index = this.items.findIndex(item => item.id == id);
                 this.items.splice(index, 1);
                 this.saveToLocalStorage();
-            },clear(){
+            }
+            , clear() {
                 localStorage.clear();
                 $scope.cart.loadFromLocalStorage();
             }

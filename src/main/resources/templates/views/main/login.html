@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/layout/index::dynamic(~{::view})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div th:fragment="view">
+		<div class="row my-5">
+			<div class="col-md-5 col-12 m-auto border p-5">
+				<form action="/auth/login" method="post">
+					<div>
+						<label>Username</label> <input name="username" class="form-control mb-3" />
+					</div>
+					<div>
+						<label>Password</label> <input type="password" name="password" class="form-control mb-3" />
+					</div>
+					<input name="remember-me" type="checkbox"> remember?
+					<hr>
+					<div class="text-center">
+						<button class="btn btn-warning my-5">Login now</button>
+					</div>
+				</form>
+				<hr>
+				<div class="text-center my-3">
+					<a class="btn btn-danger" href="/oauth2/authorization/google">Google</a>
+					<a class="btn btn-info" href="/oauth2/authorization/facebook">Facebook</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

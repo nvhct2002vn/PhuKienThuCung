@@ -1,5 +1,7 @@
 package com.example.pet.service;
 
-public interface AccountService {
+import com.example.pet.entities.Account;
 
+public interface AccountService {
+	Account findByUsername(String username);
 }

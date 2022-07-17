@@ -51,10 +51,10 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
         address: "",
         status: 1,
         // account: { username: $("#username").text() },
-        account: { user_id: $("#user_id").text() },
+        account: { id : 1 }, //đặt mặc định 1 user, đang tìm cách fix
 
         //lấy toàn bộ mặt hàng trong rỏ hàng
-        get orderDetails() {
+        get orderDetail() {
             return $scope.cart.items.map(item => {
                 return {
                     product: { id: item.id },

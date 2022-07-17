@@ -29,15 +29,14 @@ public class OrderServiceIplm implements OrderService {
 
 		Order order = mapper.convertValue(orderData, Order.class);
 		orderRepository.save(order);
-		System.out.println("In ra nè: " + orderData);
-		System.out.println("In ra nè: " + order.getAccount().getFullname());
-
-		TypeReference<List<OrderDetail>> type = new TypeReference<List<OrderDetail>>() {
-		};
-		List<OrderDetail> details = mapper.convertValue(orderData.get("orderDetails"), type).stream()
-				.peek(d -> d.setOrder(order)).collect(Collectors.toList());
-		System.out.println(details);
-		orderDetailRepository.saveAll(details);
+		System.out.println("in ra nè: " + order);
+		
+//		TypeReference<List<OrderDetail>> type = new TypeReference<List<OrderDetail>>() {
+//		};
+//		List<OrderDetail> details = mapper.convertValue(orderData.get("orderDetail"), type).stream()
+//				.peek(d -> d.setOrder(order)).collect(Collectors.toList());
+//		System.out.println(details);
+//		orderDetailRepository.saveAll(details);
 
 		return order;
 	}

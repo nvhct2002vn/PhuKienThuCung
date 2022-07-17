@@ -20,6 +20,7 @@ import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@SuppressWarnings("serial")
 @Entity(name = "products")
 public class Product implements Serializable {
 
@@ -126,12 +127,22 @@ public class Product implements Serializable {
 		price = aPrice;
 	}
 
+	/**
+	 * Access method for quantity.
+	 *
+	 * @return the current value of quantity
+	 */
 	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	/**
+	 * Setter method for quantity.
+	 *
+	 * @param aQuantity the new value for quantity
+	 */
+	public void setQuantity(int aQuantity) {
+		quantity = aQuantity;
 	}
 
 	/**

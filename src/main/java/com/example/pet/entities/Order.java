@@ -3,7 +3,6 @@
 package com.example.pet.entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -17,11 +16,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@SuppressWarnings("serial")
 @Entity(name = "orders")
 public class Order implements Serializable {
 
@@ -33,11 +31,13 @@ public class Order implements Serializable {
 	@Column(unique = true, nullable = false, precision = 10)
 	private int id;
 	@Column(name = "create_date", nullable = false)
-	private Date createDate;
-	@Column(name = "phone_number", nullable = false, length = 255)
+	private Date createDate = new Date();
+	@Column(name = "phone_number", nullable = false, length = 15)
 	private String phoneNumber;
 	@Column(nullable = false, length = 255)
 	private String address;
+	@Column(nullable = false, precision = 10)
+	private int status;
 	@JsonIgnore
 	@OneToMany(mappedBy = "order")
 	private Set<OrderDetail> orderDetail;
@@ -121,6 +121,30 @@ public class Order implements Serializable {
 	public void setAddress(String aAddress) {
 		address = aAddress;
 	}
+
+	/**
+	 * Access method for status.
+	 *
+	 * @return the current value of status
+	 */
+	public int getStatus() {
+		return status;
+	}
+
+	/**
+	 * Setter method for status.
+	 *
+	 * @param aStatus the new value for status
+	 */
+	public void setStatus(int aStatus) {
+		status = aStatus;
+	}
+
+	/**
+	 * Access method for orderDetail.
+	 *
+	 * @return the current value of orderDetail
+	 */
 	public Set<OrderDetail> getOrderDetail() {
 		return orderDetail;
 	}

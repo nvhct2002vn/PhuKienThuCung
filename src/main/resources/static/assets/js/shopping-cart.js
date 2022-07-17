@@ -47,9 +47,11 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
 
     $scope.order = {
         createDate: new Date,
-        phoneNumber: null,
-        address: null,
-        account: { username: $("#username").text() },
+        phoneNumber: "",
+        address: "",
+        status: 1,
+        // account: { username: $("#username").text() },
+        account: { user_id: $("#user_id").text() },
 
         //lấy toàn bộ mặt hàng trong rỏ hàng
         get orderDetails() {
@@ -63,6 +65,7 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
         },
         purchase() {
             var order = angular.copy(this)
+            console.log(order);
             $http.post("/rest/orders", order).then((result) => {
                 alert("Đặt hàng thành công");
                 $scope.cart.clear();
@@ -71,7 +74,6 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
                 alert("Lỗi đặt hàng");
                 console.log(err);
             });
-            console.log(order);
         }
     }
 

@@ -12,7 +12,6 @@ import com.example.pet.repository.OrderDetailRepository;
 import com.example.pet.repository.OrderRepository;
 import com.example.pet.service.OrderService;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

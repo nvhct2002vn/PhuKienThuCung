@@ -19,250 +19,254 @@ import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@SuppressWarnings("serial")
 @Entity
-@Table(name="accounts", indexes={@Index(name="accounts_username_IX", columnList="username", unique=true), @Index(name="accounts_email_IX", columnList="email", unique=true)})
+@Table(name = "accounts", indexes = { @Index(name = "accounts_username_IX", columnList = "username", unique = true),
+		@Index(name = "accounts_email_IX", columnList = "email", unique = true) })
 public class Account implements Serializable {
 
-    /** Primary key. */
-    protected static final String PK = "id";
+	/** Primary key. */
+	protected static final String PK = "id";
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(unique=true, nullable=false, precision=10)
-    private int id;
-    @Column(unique=true, nullable=false, length=255)
-    private String username;
-    @Column(nullable=false, length=255)
-    private String password;
-    @Column(nullable=false, length=255)
-    private String fullname;
-    @Column(unique=true, nullable=false, length=255)
-    private String email;
-    @Column(length=255)
-    private String photo;
-    @Column(nullable=false, precision=10)
-    private int role;
-    @JsonIgnore
-    @OneToMany(mappedBy="account")
-    private Set<Order> order;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false, precision = 10)
+	private int id;
+	@Column(unique = true, nullable = false, length = 255)
+	private String username;
+	@Column(nullable = false, length = 255)
+	private String password;
+	@Column(nullable = false, length = 255)
+	private String fullname;
+	@Column(unique = true, nullable = false, length = 255)
+	private String email;
+	@Column(length = 255)
+	private String photo;
+	@Column(nullable = false, precision = 10)
+	private int role;
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	private Set<Order> order;
 
-    /** Default constructor. */
-    public Account() {
-        super();
-    }
+	/** Default constructor. */
+	public Account() {
+		super();
+	}
 
-    /**
-     * Access method for id.
-     *
-     * @return the current value of id
-     */
-    public int getId() {
-        return id;
-    }
+	/**
+	 * Access method for id.
+	 *
+	 * @return the current value of id
+	 */
+	public int getId() {
+		return id;
+	}
 
-    /**
-     * Setter method for id.
-     *
-     * @param aId the new value for id
-     */
-    public void setId(int aId) {
-        id = aId;
-    }
+	/**
+	 * Setter method for id.
+	 *
+	 * @param aId the new value for id
+	 */
+	public void setId(int aId) {
+		id = aId;
+	}
 
-    /**
-     * Access method for username.
-     *
-     * @return the current value of username
-     */
-    public String getUsername() {
-        return username;
-    }
+	/**
+	 * Access method for username.
+	 *
+	 * @return the current value of username
+	 */
+	public String getUsername() {
+		return username;
+	}
 
-    /**
-     * Setter method for username.
-     *
-     * @param aUsername the new value for username
-     */
-    public void setUsername(String aUsername) {
-        username = aUsername;
-    }
+	/**
+	 * Setter method for username.
+	 *
+	 * @param aUsername the new value for username
+	 */
+	public void setUsername(String aUsername) {
+		username = aUsername;
+	}
 
-    /**
-     * Access method for password.
-     *
-     * @return the current value of password
-     */
-    public String getPassword() {
-        return password;
-    }
+	/**
+	 * Access method for password.
+	 *
+	 * @return the current value of password
+	 */
+	public String getPassword() {
+		return password;
+	}
 
-    /**
-     * Setter method for password.
-     *
-     * @param aPassword the new value for password
-     */
-    public void setPassword(String aPassword) {
-        password = aPassword;
-    }
+	/**
+	 * Setter method for password.
+	 *
+	 * @param aPassword the new value for password
+	 */
+	public void setPassword(String aPassword) {
+		password = aPassword;
+	}
 
-    /**
-     * Access method for fullname.
-     *
-     * @return the current value of fullname
-     */
-    public String getFullname() {
-        return fullname;
-    }
+	/**
+	 * Access method for fullname.
+	 *
+	 * @return the current value of fullname
+	 */
+	public String getFullname() {
+		return fullname;
+	}
 
-    /**
-     * Setter method for fullname.
-     *
-     * @param aFullname the new value for fullname
-     */
-    public void setFullname(String aFullname) {
-        fullname = aFullname;
-    }
+	/**
+	 * Setter method for fullname.
+	 *
+	 * @param aFullname the new value for fullname
+	 */
+	public void setFullname(String aFullname) {
+		fullname = aFullname;
+	}
 
-    /**
-     * Access method for email.
-     *
-     * @return the current value of email
-     */
-    public String getEmail() {
-        return email;
-    }
+	/**
+	 * Access method for email.
+	 *
+	 * @return the current value of email
+	 */
+	public String getEmail() {
+		return email;
+	}
 
-    /**
-     * Setter method for email.
-     *
-     * @param aEmail the new value for email
-     */
-    public void setEmail(String aEmail) {
-        email = aEmail;
-    }
+	/**
+	 * Setter method for email.
+	 *
+	 * @param aEmail the new value for email
+	 */
+	public void setEmail(String aEmail) {
+		email = aEmail;
+	}
 
-    /**
-     * Access method for photo.
-     *
-     * @return the current value of photo
-     */
-    public String getPhoto() {
-        return photo;
-    }
+	/**
+	 * Access method for photo.
+	 *
+	 * @return the current value of photo
+	 */
+	public String getPhoto() {
+		return photo;
+	}
 
-    /**
-     * Setter method for photo.
-     *
-     * @param aPhoto the new value for photo
-     */
-    public void setPhoto(String aPhoto) {
-        photo = aPhoto;
-    }
+	/**
+	 * Setter method for photo.
+	 *
+	 * @param aPhoto the new value for photo
+	 */
+	public void setPhoto(String aPhoto) {
+		photo = aPhoto;
+	}
 
-    /**
-     * Access method for role.
-     *
-     * @return the current value of role
-     */
-    public int getRole() {
-        return role;
-    }
+	/**
+	 * Access method for role.
+	 *
+	 * @return the current value of role
+	 */
+	public int getRole() {
+		return role;
+	}
 
-    /**
-     * Setter method for role.
-     *
-     * @param aRole the new value for role
-     */
-    public void setRole(int aRole) {
-        role = aRole;
-    }
+	/**
+	 * Setter method for role.
+	 *
+	 * @param aRole the new value for role
+	 */
+	public void setRole(int aRole) {
+		role = aRole;
+	}
 
-    /**
-     * Access method for order.
-     *
-     * @return the current value of order
-     */
-    public Set<Order> getOrder() {
-        return order;
-    }
+	/**
+	 * Access method for order.
+	 *
+	 * @return the current value of order
+	 */
+	public Set<Order> getOrder() {
+		return order;
+	}
 
-    /**
-     * Setter method for order.
-     *
-     * @param aOrder the new value for order
-     */
-    public void setOrder(Set<Order> aOrder) {
-        order = aOrder;
-    }
+	/**
+	 * Setter method for order.
+	 *
+	 * @param aOrder the new value for order
+	 */
+	public void setOrder(Set<Order> aOrder) {
+		order = aOrder;
+	}
 
-    /**
-     * Compares the key for this instance with another Account.
-     *
-     * @param other The object to compare to
-     * @return True if other object is instance of class Account and the key objects are equal
-     */
-    private boolean equalKeys(Object other) {
-        if (this==other) {
-            return true;
-        }
-        if (!(other instanceof Account)) {
-            return false;
-        }
-        Account that = (Account) other;
-        if (this.getId() != that.getId()) {
-            return false;
-        }
-        return true;
-    }
+	/**
+	 * Compares the key for this instance with another Account.
+	 *
+	 * @param other The object to compare to
+	 * @return True if other object is instance of class Account and the key objects
+	 *         are equal
+	 */
+	private boolean equalKeys(Object other) {
+		if (this == other) {
+			return true;
+		}
+		if (!(other instanceof Account)) {
+			return false;
+		}
+		Account that = (Account) other;
+		if (this.getId() != that.getId()) {
+			return false;
+		}
+		return true;
+	}
 
-    /**
-     * Compares this instance with another Account.
-     *
-     * @param other The object to compare to
-     * @return True if the objects are the same
-     */
-    @Override
-    public boolean equals(Object other) {
-        if (!(other instanceof Account)) return false;
-        return this.equalKeys(other) && ((Account)other).equalKeys(this);
-    }
+	/**
+	 * Compares this instance with another Account.
+	 *
+	 * @param other The object to compare to
+	 * @return True if the objects are the same
+	 */
+	@Override
+	public boolean equals(Object other) {
+		if (!(other instanceof Account))
+			return false;
+		return this.equalKeys(other) && ((Account) other).equalKeys(this);
+	}
 
-    /**
-     * Returns a hash code for this instance.
-     *
-     * @return Hash code
-     */
-    @Override
-    public int hashCode() {
-        int i;
-        int result = 17;
-        i = getId();
-        result = 37*result + i;
-        return result;
-    }
+	/**
+	 * Returns a hash code for this instance.
+	 *
+	 * @return Hash code
+	 */
+	@Override
+	public int hashCode() {
+		int i;
+		int result = 17;
+		i = getId();
+		result = 37 * result + i;
+		return result;
+	}
 
-    /**
-     * Returns a debug-friendly String representation of this instance.
-     *
-     * @return String representation of this instance
-     */
-    @Override
-    public String toString() {
-        StringBuffer sb = new StringBuffer("[Account |");
-        sb.append(" id=").append(getId());
-        sb.append("]");
-        return sb.toString();
-    }
+	/**
+	 * Returns a debug-friendly String representation of this instance.
+	 *
+	 * @return String representation of this instance
+	 */
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer("[Account |");
+		sb.append(" id=").append(getId());
+		sb.append("]");
+		return sb.toString();
+	}
 
-    /**
-     * Return all elements of the primary key.
-     *
-     * @return Map of key names to values
-     */
-    public Map<String, Object> getPrimaryKey() {
-        Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
-        ret.put("id", Integer.valueOf(getId()));
-        return ret;
-    }
+	/**
+	 * Return all elements of the primary key.
+	 *
+	 * @return Map of key names to values
+	 */
+	public Map<String, Object> getPrimaryKey() {
+		Map<String, Object> ret = new LinkedHashMap<String, Object>(6);
+		ret.put("id", Integer.valueOf(getId()));
+		return ret;
+	}
 
 }

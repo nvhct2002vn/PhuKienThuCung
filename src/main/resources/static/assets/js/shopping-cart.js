@@ -1,4 +1,4 @@
-const app = angular.module("app", []).controller("shopping-cart-ctrl", function ($scope, $http) {
+const app = angular.module("app", []).controller("shopping-cart-ctrl", function ($scope, $http, $rootScope) {
     $scope.quantity,
 
         $scope.cart = {
@@ -45,13 +45,17 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
         }
     $scope.cart.loadFromLocalStorage();
 
+    // lấy username để get user theo username để lấy ra id
+    $scope.getusername = {
+        accountget: { username: $("#username").text() },
+    }
+
     $scope.order = {
         createDate: new Date,
         phoneNumber: "",
         address: "",
         status: 1,
-        // account: { username: $("#username").text() },
-        account: { id : 1 }, //đặt mặc định 1 user, đang tìm cách fix
+        account: { id: null }, //đặt mặc định 1 user, đang tìm cách fix
 
         //lấy toàn bộ mặt hàng trong rỏ hàng
         get orderDetail() {
@@ -64,16 +68,37 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
             });
         },
         purchase() {
-            var order = angular.copy(this)
-            console.log(order);
-            $http.post("/rest/orders", order).then((result) => {
-                alert("Đặt hàng thành công");
-                $scope.cart.clear();
-                location.href = "/order/detail/" + result.data.id;
+            // lấy username
+            var username = $scope.getusername.accountget.username;
+            console.log("Lấy đc user thành công: ", username);
+            $http.get(`/rest/account/${username}`).then((result) => {
+                // gán id lấy đc vào acc.id đc khai báo bên trên
+                $scope.order.account.id = result.data.id;
+                console.log("Lấy được id:" + $scope.order.account.id);
+                var order = angular.copy(this);
+                console.log("coppy order thành công: ", order);
+                $http.post("/rest/orders", order).then((result) => {
+                    alert("Đặt hàng thành công");
+                    $scope.cart.clear();
+                    location.href = "/order/detail/" + result.data.id;
+                }).catch((err) => {
+                    alert("Lỗi đặt hàng");
+                    console.log(err);
+                });
             }).catch((err) => {
-                alert("Lỗi đặt hàng");
                 console.log(err);
             });
+
+            // const order = angular.copy(this);
+            // console.log("order", order);
+            // $http.post("/rest/orders", order).then((result) => {
+            //     alert("Đặt hàng thành công");
+            //     $scope.cart.clear();
+            //     location.href = "/order/detail/" + result.data.id;
+            // }).catch((err) => {
+            //     alert("Lỗi đặt hàng");
+            //     console.log(err);
+            // });
         }
     }
 

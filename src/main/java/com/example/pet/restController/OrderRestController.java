@@ -22,8 +22,4 @@ public class OrderRestController {
 		return this.orderService.save(orderData);
 	}
 	
-	@PostMapping("/rest/order")
-	public Order postOrder(@RequestBody Order order) {
-		return this.orderService.saveOrder(order);
-	}
 }

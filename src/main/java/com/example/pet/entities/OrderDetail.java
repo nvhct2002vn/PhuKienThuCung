@@ -27,7 +27,7 @@ public class OrderDetail implements Serializable {
 	@Column(unique = true, nullable = false, precision = 10)
 	private int id;
 	@Column(nullable = false, precision = 12)
-	private float price;
+	private int price;
 	@Column(nullable = false, precision = 10)
 	private int quantity;
 	@ManyToOne(optional = false)
@@ -65,7 +65,7 @@ public class OrderDetail implements Serializable {
 	 *
 	 * @return the current value of price
 	 */
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
@@ -74,7 +74,7 @@ public class OrderDetail implements Serializable {
 	 *
 	 * @param aPrice the new value for price
 	 */
-	public void setPrice(float aPrice) {
+	public void setPrice(int aPrice) {
 		price = aPrice;
 	}
 

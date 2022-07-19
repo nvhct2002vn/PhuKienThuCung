@@ -13,6 +13,7 @@
 			<thead>
 				<tr>
 					<th scope="col">Order code</th>
+					<th scope="col">Full Name</th>
 					<th scope="col">Phone number</th>
 					<th scope="col">Address</th>
 					<th scope="col">Create date</th>
@@ -23,6 +24,7 @@
 			<tbody>
 				<tr th:each="item : ${listOrders}">
 					<th scope="row">[[${item.id}]]</th>
+					<td>[[${item.account.fullname}]]</td>
 					<td>[[${item.phoneNumber}]]</td>
 					<td>[[${item.address}]]</td>
 					<td>[[${item.createDate}]]</td>

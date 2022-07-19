@@ -45,6 +45,7 @@
 						</th:block>
 						<th:block th:if="${#request.remoteUser}">
 							<li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+							<li><a class="dropdown-item" th:href="@{/order/list}">Lịch sử mua hàng</a></li>
 							<li>
 								<hr class="dropdown-divider">
 							</li>

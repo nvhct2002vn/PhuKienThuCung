@@ -9,34 +9,34 @@
 
 <body>
 	<div th:fragment="view" class="row">
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">Product name</th>
-					<th scope="col">Image</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Price</th>
-					<th scope="col">Into money</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="item : ${listOrderDetails}">
-					<th scope="row">[[${item.product.name}]]</th>
-					<td><img style="max-width: 60px;"
-						th:src="@{|/assets/images/${item.product.image}|}"></td>
-					<td>[[${item.quantity}]]</td>
-					<td>[[*{#numbers.formatDecimal(item.price,0,'COMMA',0,'POINT')}]]
-						VND</td>
-					<td>[[*{#numbers.formatDecimal(item.price *
-						item.quantity,0,'COMMA',0,'POINT')}]] VND</td>
-				</tr>
-			</tbody>
-		</table>
-		<div th:objects="order">
-<!-- 			<p>Total -->
-<!-- 				amount:[[*{#numbers.formatDecimal(order,0,'COMMA',2,'POINT')}]]</p> -->
-			<p>Phone number: [[${order.phoneNumber}]]</p>
-			<p>Address: [[${order.address}]]</p>
+		<div th:objects="${order}">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Product name</th>
+						<th scope="col">Image</th>
+						<th scope="col">Quantity</th>
+						<th scope="col">Price</th>
+						<th scope="col">Into money</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="item : ${order.orderDetail}">
+						<th scope="row">[[${item.product.name}]]</th>
+						<td><img style="max-width: 60px;"
+							th:src="@{|/assets/images/${item.product.image}|}"></td>
+						<td>[[${item.quantity}]]</td>
+						<td>[[*{#numbers.formatDecimal(item.price,0,'COMMA',0,'POINT')}]]
+							VND</td>
+						<td>[[*{#numbers.formatDecimal(item.price *
+							item.quantity,0,'COMMA',0,'POINT')}]] VND</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>
+				<p>Phone number: [[${order.phoneNumber}]]</p>
+				<p>Address: [[${order.address}]]</p>
+			</div>
 		</div>
 	</div>
 </body>

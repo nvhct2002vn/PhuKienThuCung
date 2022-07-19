@@ -12,4 +12,8 @@ public interface OrderService {
 
 	Order findById(Integer id);
 
+	List<Order> findByAll();
+
+	List<Order> findByUsername(int user_id);
+
 }

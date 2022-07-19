@@ -19,17 +19,4 @@ public class OrderDetailController {
 	@Autowired
 	OrderDetailService detailService;
 
-	@Autowired
-	OrderService orderService;
-	
-	@GetMapping("/order/detail/{id}")
-	public String orderDetail(Model model, @PathVariable("id") Integer id) {
-		List<OrderDetail> listOrderDetails = this.detailService.findByOrder(id);
-		model.addAttribute("listOrderDetails", listOrderDetails);
-		
-		Order order = this.orderService.findById(id);
-		model.addAttribute("order", order);
-		
-		return "/views/order/OrderDetail";
-	}
 }

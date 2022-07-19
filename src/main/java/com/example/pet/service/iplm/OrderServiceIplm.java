@@ -43,4 +43,14 @@ public class OrderServiceIplm implements OrderService {
 		return this.orderRepository.findById(id).get();
 	}
 
+	@Override
+	public List<Order> findByAll() {
+		return this.orderRepository.findAll();
+	}
+
+	@Override
+	public List<Order> findByUsername(int user_id) {
+		return this.orderRepository.findByUserId(user_id);
+	}
+
 }

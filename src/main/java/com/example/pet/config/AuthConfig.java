@@ -39,6 +39,7 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
 
 
 
+	//lấy dữ liệu
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(authService);
@@ -62,7 +63,7 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
 		http.rememberMe().tokenValiditySeconds(86400);
 
 		
-		// đang nhập từ mạng xã hội
+		// đăng nhập từ mạng xã hội
 		http.oauth2Login().loginPage("/login-form").defaultSuccessUrl("/oauth2/login/success", false).failureUrl("/auth/login/erro")
 				.authorizationEndpoint().baseUri("/oauth2/authorization");// base uri
 

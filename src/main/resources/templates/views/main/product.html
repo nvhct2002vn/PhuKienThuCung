@@ -12,7 +12,7 @@
 		<div class="col-md-3 col-12 p-0"
 			th:insert="~{/views/layout/category ::listCate}"></div>
 		<div class="col-md-9 col-12 row">
-			<div th:each="prd : ${listPrd}" class="card col-md-4 m-auto my-3"
+			<div th:each="prd : ${listPrd}" class="card col-md-4 m-auto my-3 p-2"
 				style="width: 18rem;">
 				<a th:href="@{|/product/${prd.id}|}"> <img
 					th:src="@{|/assets/images/${prd.image}|}" class="card-img-top"

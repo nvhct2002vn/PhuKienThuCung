@@ -11,6 +11,8 @@ public interface ProductService {
 
 	Product findById(Integer id);
 
-	Product save(Category category);
+	Product save(Product product);
+
+	Product update(Product product);
 
 }

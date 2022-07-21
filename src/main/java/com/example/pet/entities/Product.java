@@ -4,6 +4,7 @@ package com.example.pet.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -39,8 +40,8 @@ public class Product implements Serializable {
 	private int price;
 	@Column(nullable = false, precision = 10)
 	private int quantity;
-	@Column(name = "created_date", nullable = false)
-	private LocalDate createdDate;
+	@Column(name = "create_date", nullable = false)
+	private Date createDate = new Date();
 	@Column(nullable = false, precision = 10)
 	private int status;
 	@JsonIgnore
@@ -150,8 +151,8 @@ public class Product implements Serializable {
 	 *
 	 * @return the current value of createdDate
 	 */
-	public LocalDate getCreatedDate() {
-		return createdDate;
+	public Date getCreateDate() {
+		return createDate;
 	}
 
 	/**
@@ -159,8 +160,8 @@ public class Product implements Serializable {
 	 *
 	 * @param aCreatedDate the new value for createdDate
 	 */
-	public void setCreatedDate(LocalDate aCreatedDate) {
-		createdDate = aCreatedDate;
+	public void setCreateDate(Date aCreateDate) {
+		createDate = aCreateDate;
 	}
 
 	/**

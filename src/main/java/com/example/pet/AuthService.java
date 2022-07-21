@@ -42,6 +42,7 @@ public class AuthService implements UserDetailsService {
 		String password = Long.toHexString(System.currentTimeMillis());
 
 		UserDetails acc = User.withUsername(email).password(pe.encode(password)).roles("0").build();
+		//tạo đối tượng Authentication từ UserDetails (acc)
 		Authentication auth = new UsernamePasswordAuthenticationToken(acc, null, acc.getAuthorities());
 		SecurityContextHolder.getContext().setAuthentication(auth);
 

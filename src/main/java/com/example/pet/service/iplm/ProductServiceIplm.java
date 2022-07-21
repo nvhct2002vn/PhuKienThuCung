@@ -27,8 +27,13 @@ public class ProductServiceIplm implements ProductService {
 	}
 
 	@Override
-	public Product save(Category category) {
-		return this.save(category);
+	public Product save(Product product) {
+		return this.productRepository.save(product);
+	}
+
+	@Override
+	public Product update(Product product) {
+		return this.productRepository.save(product);
 	}
 
 }

@@ -95,12 +95,12 @@ app.controller("product-ctrl", function ($scope, $http) {
         }, prev() {
             this.page--;
             if (this.page < 0) {
-                this.page = 0
+                this.page = 0;
             }
         }, next() {
             this.page++;
             if (this.page > this.count - 1) {
-                this.page = this.count - 1
+                this.page = this.count - 1;
             }
         }, last() {
             this.page = this.count - 1;

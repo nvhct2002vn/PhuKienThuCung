@@ -68,7 +68,7 @@
 					<th scope="col">Status</th>
 					<th scope="col" colspan="2">Thao Tác</th>
 				</tr>
-				<tr ng-repeat="item in items">
+				<tr ng-repeat="item in pager.items">
 					<td>{{item.category.name}}</td>
 					<td>{{item.name}}</td>
 					<td><img src="/assets/images/{{item.image}}" alt="" style="max-width: 60px;"></td>
@@ -83,6 +83,19 @@
 			<tbody>
 			</tbody>
 		</table>
+		<div class="d-flex justify-content-center">
+			<ul class="pagination">
+				<li class="page-item"><button ng-click="pager.firt()" class="page-link">First</button></li>
+				<li class="page-item"><button ng-click="pager.prev()" class="page-link">Prev</button></li>
+
+				<li class="page-item">
+					<p class="page-link">{{pager.page+1}} of {{pager.count}}</p>
+				</li>
+
+				<li class="page-item"><button ng-click="pager.next()" class="page-link">Next</button></li>
+				<li class="page-item"><button ng-click="pager.last()" class="page-link">Last</button></li>
+			</ul>
+		</div>
 	</div>
 </body>
 

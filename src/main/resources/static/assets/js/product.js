@@ -61,6 +61,7 @@ app.controller("product-ctrl", function ($scope, $http) {
             console.log(err);
         });
     }
+
     $scope.refesh = function () {
         $scope.form = {};
     }
@@ -77,6 +78,35 @@ app.controller("product-ctrl", function ($scope, $http) {
             console.log(err);
         });
     }
+
+    // phân trang
+    $scope.pager = {
+        page: 0,
+        size: 5,
+        get items() {
+            var start = this.page * this.size;
+            return $scope.items.slice(start, start + this.size);
+        },
+        get count() {
+            return Math.ceil(1.0 * $scope.items.length / this.size);
+        },
+        firt() {
+            this.page = 0;
+        }, prev() {
+            this.page--;
+            if (this.page < 0) {
+                this.page = 0
+            }
+        }, next() {
+            this.page++;
+            if (this.page > this.count - 1) {
+                this.page = this.count - 1
+            }
+        }, last() {
+            this.page = this.count - 1;
+        }
+    }
+
     $scope.loadAll();
 
 

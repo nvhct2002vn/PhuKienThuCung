@@ -9,7 +9,7 @@
 <body>
 	<div th:fragment="view">
 		<!-- slide bar -->
-		<div id="carouselExampleControls" class="carousel slide slide-show-img" data-bs-ride="carousel">
+		<div id="carouselExampleControls" class="carousel slide slide-show-img mt-3" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img src="https://file.vfo.vn/hinh/2015/12/meo-con-dang-yeu-lam-hinh-nen-may-tinh-4.jpg"
@@ -35,13 +35,69 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
-		<div class="m-3">
-			<h4>Sản phẩm mới</h4>
+		<!-- Cam kết -->
+		<div class="my-3">
+			<div class="text-center">
+				<h4>Cam Kết</h4>
+			</div>
+			<div class="row text-center">
+				<div class="card camKet col-md-4 my-3 m-auto" style="width: 18rem;">
+					<iframe class="cart-img-top" src="https://embed.lottiefiles.com/animation/41822"></iframe>
+					<div class="card-body">
+						<h5 class="card-title">Nhanh chóng</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+				<div class="card camKet col-md-4 my-3 m-auto" style="width: 18rem;">
+					<iframe class="cart-img-top" src="https://embed.lottiefiles.com/animation/47147"></iframe>
+					<div class="card-body">
+						<h5 class="card-title">Chính hãng</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+				<div class="card camKet col-md-4 my-3 m-auto" style="width: 18rem;">
+					<iframe class="cart-img-top" src="https://embed.lottiefiles.com/animation/55607"></iframe>
+					<div class="card-body">
+						<h5 class="card-title">Giá rẻ</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="row">
-			<article class="col-md-9">
+		<div class="text-center">
+			<img src="https://phukienpet.vn/image/cache/data/logo%20banner/9-1180x93.jpg" alt="">
+		</div>
+		<!-- sản phẩm -->
+		<div class="row product">
+			<div class="my-3 text-center">
+				<h3 class="m-0">Sản phẩm mới</h3>
+			</div>
+			<article class="col-md-9 p-0">
 				<div class="row m-0">
-					<div class="card col-md-4 m-3" style="width: 18rem;">
+					<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+						<img src="..." class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+							<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+								ngay</a>
+						</div>
+					</div>
+					<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+						<img src="..." class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+							<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+								ngay</a>
+						</div>
+					</div>
+					<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
 						<img src="..." class="card-img-top" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
@@ -52,10 +108,177 @@
 						</div>
 					</div>
 				</div>
+
 			</article>
+			<aside th:insert="~{/views/layout/category ::listCate}" class="col-md-3 p-0"></aside>
 			<!--category -->
-			<aside th:insert="~{/views/layout/category ::listCate}" class="col-md-3"></aside>
+			<div class="text-center">
+				<h3>Sản phẩm</h3>
+			</div>
+			<div class="row m-0">
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+							ngay</a>
+					</div>
+				</div>
+			</div>
 		</div>
+		<div class="text-center">
+			<img src="https://phukienpet.vn/image/cache/data/logo%20banner/banner%20vi%20thu%20cung%20khoe%20manh-1180x93.jpg"
+				alt="">
+		</div>
+		<div class="blog">
+			<div class="blog-title text-center mt-3">
+				<h3>Tin Tức</h3>
+			</div>
+			<div class="blog-content">
+				<div class="row text-center">
+					<div class="card content my-3 m-auto" style="width: 18rem;">
+						<img src="https://top10tphcm.com/wp-content/uploads/2019/11/phong-kham-thu-y.jpg"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Top 5 phòng khám uy tín tại Hà Nội</h5>
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+						</div>
+					</div>
+					<div class="card content my-3 m-auto" style="width: 18rem;">
+						<img src="https://daihocthuyhanoi.edu.vn/assets/uploads/news/images/ch%C3%B3-b%E1%BA%AFt-tay.jpg"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Hướng dẫn dạy chó bắt tay</h5>
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+						</div>
+					</div>
+					<div class="card content my-3 m-auto" style="width: 18rem;">
+						<img src="https://giadinhpet.com/wp-content/uploads/2021/03/nguyen-nhan-cho-bieng-an-min.jpg"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Cách trị chứng biếng ăn cho chó</h5>
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 </body>
 

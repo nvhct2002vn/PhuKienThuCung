@@ -7,22 +7,18 @@
 </head>
 
 <body>
-	<nav th:fragment="navbar" class="navbar navbar-expand-lg bg-warning p-2 bg-opacity-75 static-top fs-5 sticky-top">
-		<a class="navbar-brand" href="#"> <img src="/assets/images/logo.png" alt="Logo" height="35">
+	<nav th:fragment="navbar" class="navbar_css navbar navbar-expand-lg bg-warning p-2  static-top sticky-top">
+		<a class="navbar-brand" href="/"> <img src="/assets/images/logo.svg" alt="Logo" height="35">
 		</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="/">Trang chủ</a>
+				<li class="nav-item"><a class="nav-link" href="/">HOME</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/product}">Sản
-						phẩm</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/product}">PRODUCT</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
 			</ul>
-			<ul class="navbar-nav ms-auto header_cart">
+			<ul class="navbar-nav ms-auto header_cart fs-5">
 				<li class="nav-item"><a class="nav-link" th:href="@{/cart}"><i
 							class="bi bi-bag-fill"></i><span>{{cart.count}}</span></a></li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -31,9 +27,7 @@
 							<th:block th:if="${#request.remoteUser}">
 								<div class="m-0 p-0 d-inline">[[${#authentication.name}]]</div>
 							</th:block>
-							<th:block th:unless="${#request.remoteUser}">
-								Tài khoản
-							</th:block>
+							
 						</i>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

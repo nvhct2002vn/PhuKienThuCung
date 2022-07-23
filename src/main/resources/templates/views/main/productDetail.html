@@ -17,7 +17,7 @@
 				<p>[[*{name}]]</p>
 				<p>Số lượng còn lại: [[*{quantity}]]</p>
 				<form action="">
-					<label class="d-inline">Số lượng:</label> <input class="form-control d-inline" type="number"
+					<label class="d-inline">Số lượng:</label> <input class="form-control d-inline" min="1" type="number"
 						ng-model="quantity" required>
 					<p>Giá sản phẩm: [[*{#numbers.formatDecimal(price, 0, 'COMMA',
 						0, 'POINT')}]] VND</p>

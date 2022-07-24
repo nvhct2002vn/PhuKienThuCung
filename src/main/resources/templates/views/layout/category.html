@@ -7,10 +7,10 @@
 </head>
 
 <body>
-	<ul th:fragment="listCate" class="list-group m-3">
+	<ul th:fragment="listCate" class="list-group m-3 category">
 		<li th:each="cate: ${cates}"
 			class="list-group-item d-flex justify-content-between align-items-center">
-			[[${cate.name}]]<span class="text-dark badge bg-warning rounded-pill">1</span>
+			<a th:href="@{|/category/${cate.id}|}">[[${cate.name}]]</a><span class="text-dark badge bg-warning rounded-pill">1</span>
 		</li>
 	</ul>
 </body>

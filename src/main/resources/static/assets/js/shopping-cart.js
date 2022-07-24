@@ -88,17 +88,6 @@ const app = angular.module("app", []).controller("shopping-cart-ctrl", function 
             }).catch((err) => {
                 console.log(err);
             });
-
-            // const order = angular.copy(this);
-            // console.log("order", order);
-            // $http.post("/rest/orders", order).then((result) => {
-            //     alert("Đặt hàng thành công");
-            //     $scope.cart.clear();
-            //     location.href = "/order/detail/" + result.data.id;
-            // }).catch((err) => {
-            //     alert("Lỗi đặt hàng");
-            //     console.log(err);
-            // });
         }
     }
 

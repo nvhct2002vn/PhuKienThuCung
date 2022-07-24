@@ -33,6 +33,11 @@ public class ProductRestController {
 		return this.productService.findById(id);
 	}
 
+	@GetMapping("/sortDate")
+	public List<Product> getByDate() {
+		return this.productService.getAllSortDate();
+	}
+
 	@PostMapping("")
 	public Product post(@RequestBody Product product) {
 		return this.productService.save(product);

@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<div th:fragment="view">
+	<div th:fragment="view" ng-controller="home-ctrl">
 		<!-- slide bar -->
 		<div id="carouselExampleControls" class="carousel slide slide-show-img mt-3" data-bs-ride="carousel">
 			<div class="carousel-inner">
@@ -77,38 +77,19 @@
 			</div>
 			<article class="col-md-9 p-0">
 				<div class="row m-0">
-					<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-						<img src="..." class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-								ngay</a>
-						</div>
-					</div>
-					<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-						<img src="..." class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-								ngay</a>
-						</div>
-					</div>
-					<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-						<img src="..." class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-								ngay</a>
+					<div class="row m-0">
+						<div ng-repeat="item in items | limitTo: 3" ng-show="item.status == 1" class="card my-3 m-auto py-2"
+							style="width: 18rem;">
+							<img src="/assets/images/{{item.image}}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">{{item.name}}</h5>
+								<p class="card-text">{{item.price | currency : value="" : 0}} VND</p>
+								<a href="/product/{{item.id}}" class="btn btn-warning d-flex justify-content-center">Mua
+									ngay</a>
+							</div>
 						</div>
 					</div>
 				</div>
-
 			</article>
 			<aside th:insert="~{/views/layout/category ::listCate}" class="col-md-3 p-0"></aside>
 			<!--category -->
@@ -116,123 +97,12 @@
 				<h3>Sản phẩm</h3>
 			</div>
 			<div class="row m-0">
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
+				<div  ng-repeat="item in items | limitTo: 20" ng-show="item.status == 1" class="card my-3 m-auto py-2" style="width: 18rem;">
+					<img src="/assets/images/{{item.image}}" class="card-img-top" alt="..." height="250px">
 					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
-							ngay</a>
-					</div>
-				</div>
-				<div class="card col-md-4 my-3 m-auto" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-warning d-flex justify-content-center">Mua
+						<h5 class="card-title">{{item.name}}</h5>
+						<p class="card-text">{{item.price | currency : value="" : 0}} VND</p>
+						<a href="/product/{{item.id}}" class="btn btn-warning d-flex justify-content-center">Mua
 							ngay</a>
 					</div>
 				</div>

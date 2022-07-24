@@ -2,6 +2,18 @@ body {
 	font-family: "helveticaneuemedium";
 	background-color: rgb(245, 244, 231);
 }
+.category li:hover{
+	background-color: antiquewhite;
+}
+.category li a {
+	text-decoration: none;
+	color: black;
+	padding-right: 60%;
+}
+
+.category li a:hover {
+	text-decoration: underline;
+}
 
 .container {
 	width: 70%;
@@ -53,10 +65,15 @@ body {
 .product h3 {
 	font-weight: bold;
 }
-.card-title{
-	font-weight: bold;
+
+.card-body {
 	text-align: center;
 }
+
+.card-body h5 {
+	font-weight: bold;
+}
+
 .content {
 	border-radius: 15px;
 	padding: 10px;

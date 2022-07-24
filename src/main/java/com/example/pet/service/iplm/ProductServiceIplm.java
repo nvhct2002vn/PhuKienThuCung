@@ -36,4 +36,9 @@ public class ProductServiceIplm implements ProductService {
 		return this.productRepository.save(product);
 	}
 
+	@Override
+	public List<Product> getAllSortDate() {
+		return this.productRepository.getAllSortDate();
+	}
+
 }

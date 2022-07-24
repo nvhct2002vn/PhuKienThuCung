@@ -14,5 +14,7 @@ public interface ProductService {
 	Product save(Product product);
 
 	Product update(Product product);
+	
+	List<Product> getAllSortDate();
 
 }

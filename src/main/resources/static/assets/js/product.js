@@ -28,6 +28,7 @@ app.controller("product-ctrl", function ($scope, $http) {
         $http.post(url, item).then((result) => {
             $scope.items.push(item);
             $scope.loadAll();
+            $scope.refesh();
         }).catch((err) => {
             console.log(err);
         });
@@ -42,7 +43,9 @@ app.controller("product-ctrl", function ($scope, $http) {
         var uri = `${url}/${$scope.id}`;
         var item = angular.copy($scope.form);
         $http.put(uri, item).then((result) => {
-            $scope.items[$scope.id - 1] = result.data;
+            var index = $scope.items.findIndex(item => item.id == $scope.id);
+            $scope.items[index] = result.data;
+            console.log(index);
         }).catch((err) => {
             console.log(err);
         });
@@ -51,12 +54,12 @@ app.controller("product-ctrl", function ($scope, $http) {
     // sửa trạng thái
     $scope.delete = function (item) {
         var uri = `${url}/${item.id}`;
-        var item = angular.copy(item);
-        item.status = 0;
-        console.log(item);
-        $http.put(uri, item).then((result) => {
-            $scope.items[item.id] = result.data;
-            $scope.loadAll();
+        var itemCp = angular.copy(item);
+        itemCp.status = 0;
+        $http.put(uri, itemCp).then((result) => {
+            var index = $scope.items.findIndex(itemCp => itemCp.id == item.id)
+            $scope.items[index] = result.data;
+            console.log(index);
         }).catch((err) => {
             console.log(err);
         });
@@ -82,7 +85,7 @@ app.controller("product-ctrl", function ($scope, $http) {
     // phân trang
     $scope.pager = {
         page: 0,
-        size: 5,
+        size: 10,
         get items() {
             var start = this.page * this.size;
             return $scope.items.slice(start, start + this.size);

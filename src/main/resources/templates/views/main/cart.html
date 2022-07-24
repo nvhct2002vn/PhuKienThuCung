@@ -26,14 +26,14 @@
 						<td><img src="/assets/images/{{item.image}}" alt="iamge" style="max-width: 60px;"></td>
 						<td><input style="max-width: 80px;" class="form-control" type="number" ng-model="item.qty"
 								ng-change="cart.saveToLocalStorage()"></td>
-						<td>{{item.price}} VND</td>
-						<td>{{item.price*item.qty}} VND</td>
+						<td>{{item.price | currency : value="" : 0}} VND</td>
+						<td>{{item.price*item.qty | currency : value="" : 0}} VND</td>
 						<td><button class="btn btn-warning" ng-click="cart.remove(item.id)">Delete</button></td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="mt-3">
-				<p>Tổng tiền: {{cart.amount}} VND</p>
+				<p>Tổng tiền: {{cart.amount | currency : value="" : 0}} VND</p>
 				<button class="btn btn-warning my-3" ng-click="cart.clear()">Clear</button>
 				<a th:href="@{/order/check-out}" class="btn btn-warning">Check out</a>
 			</div>

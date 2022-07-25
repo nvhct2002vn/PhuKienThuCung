@@ -1,44 +1,60 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org/"
-	th:replace="~{/views/layout/index::dynamic(~{::view})}">
+<html
+  xmlns:th="https://www.thymeleaf.org/"
+  th:replace="~{/views/layout/index::dynamic(~{::view})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
 
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-
-<body>
-	<div th:fragment="view" class="row">
-		<div th:replace="~{/views/main/cart::shopping-cart}"></div>
-		<form>
-			<div class="row text-center">
-				<div class="col-md-6 col-12">
-					<label>username</label>
-					<div class="form-control" id="username">[[${#authentication.name}]]</div>
-				</div>
-				<div class="col-md-6 col-12">
-					<label>createDate</label>
-					<div class="form-control">{{order.createDate |
-						date:'dd-MM-yyyy'}}</div>
-				</div>
-			</div>
-			<div>
-				<label for="address">Address</label> <input
-					class="form-control mb-3 text-center" type="text"
-					ng-model="order.address" required>
-			</div>
-			<div>
-				<label for="phoneNumber">Phone number</label> <input
-					class="form-control mb-3 text-center" type="text"
-					ng-model="order.phoneNumber" required>
-			</div>
-			<p>Tổng tiền: {{cart.amount}} VND</p>
-			<div class="text-center my-3">
-				<button ng-click=order.purchase() class="btn btn-warning">Order
-					now</button>
-			</div>
-		</form>
-	</div>
-</body>
-
+  <body>
+    <div th:fragment="view" class="row">
+      <div th:replace="~{/views/main/cart::shopping-cart}"></div>
+      <form>
+        <div class="row text-center">
+          <div class="col-md-6 col-12">
+            <label>username</label>
+            <div class="form-control" id="username">
+              [[${#authentication.name}]]
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <label>createDate</label>
+            <div class="form-control">
+              {{order.createDate | date:'dd-MM-yyyy'}}
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="address">Address</label>
+          <input
+            class="form-control mb-3 text-center"
+            type="text"
+            ng-model="order.address"
+            required
+          />
+        </div>
+        <div>
+          <label for="phoneNumber">Phone number</label>
+          <input
+            class="form-control mb-3 text-center"
+            type="text"
+            ng-model="order.phoneNumber"
+            required
+          />
+        </div>
+        <p>Tổng tiền: {{cart.amount | currency : value="" : 0}} VND</p>
+        <!-- <select ng-model="payout" class="form-select text-center">
+          <option value="0">Thanh toán khi nhận hàng</option>
+          <option value="1">Thanh toán online</option>
+        </select> -->
+        <div class="text-center my-3">
+          <button ng-click="order.purchase()" class="btn btn-warning">
+            Order now
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>

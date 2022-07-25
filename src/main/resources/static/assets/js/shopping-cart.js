@@ -52,7 +52,7 @@ const app = angular
 
     // lấy username để get user theo username để lấy ra id
     $scope.getusername = {
-      accountget: { username: $("#username").text().trim() },
+      accountget: { username: $("#username").text() },
     };
 
     $scope.order = {

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/admin/layout/index::dynamic(~{::view})}">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Insert title here</title>
+</head>
+
+<body>
+  <div th:fragment="view" class="row">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">Order code</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Phone number</th>
+          <th scope="col">Address</th>
+          <th scope="col">Create date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Control</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="item : ${listOrders}">
+          <th scope="row">[[${item.id}]]</th>
+          <td>[[${item.account.fullname}]]</td>
+          <td>[[${item.phoneNumber}]]</td>
+          <td>[[${item.address}]]</td>
+          <td>[[${item.createDate}]]</td>
+          <td>
+            [[${item.status == 0?'Đã huỷ đơn hàng':item.status == 1?'Đã đặt
+            hàng':item.status == 2?'Đã xác nhận đơn hàng':'Đã thanh toán'}]]
+          </td>
+          <td>
+            <a th:href="@{|/admin/order/detail/${item.id}|}" class="btn btn-warning"><i class="bi bi-search"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

@@ -31,8 +31,4 @@ public class ProductController {
 		return "/views/main/productDetail";
 	}
 
-	@RequestMapping("/admin/product")
-	public String admin() {
-		return "/views/admin/product";
-	}
 }

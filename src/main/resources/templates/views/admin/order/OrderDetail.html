@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/layout/index::dynamic(~{::view})}">
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/admin/layout/index::dynamic(~{::view})}">
 
 <head>
 	<meta charset="UTF-8">
@@ -35,9 +35,9 @@
 				<p>Phone number: [[${order.phoneNumber}]]</p>
 				<p>Address: [[${order.address}]]</p>
 			</div>
-			<div class="text-center">
-				<button class="btn btn-warning my-3">Huỷ đơn hàng</button>
-			</div>
+		</div>
+		<div class="text-center">
+			<button class="btn btn-warning my-3">Xác nhận đơn hàng</button>
 		</div>
 	</div>
 </body>

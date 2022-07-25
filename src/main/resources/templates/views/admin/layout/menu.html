@@ -14,13 +14,12 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="/">HOME</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/product}">PRODUCT</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">ACCOUNT</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/admin/category}">CATEGORY</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/admin/product}">PRODUCT</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/admin/order}">ORDER</a></li>
 			</ul>
 			<ul class="navbar-nav ms-auto header_cart fs-5">
-				<li class="nav-item"><a class="nav-link" th:href="@{/cart}"><i
-							class="bi bi-bag-fill"></i><span>{{cart.count}}</span></a></li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="bi bi-person-circle">
@@ -31,16 +30,11 @@
 						</i>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-						<th:block th:unless="${#request.remoteUser}">
-							<li><a class="dropdown-item" th:href="@{/login-form}">Đăng nhập</a></li>
-							<li><a class="dropdown-item" href="#">Đăng ký</a></li>
-						</th:block>
 						<th:block th:if="${#request.isUserInRole('1')}">
 							<li><a class="dropdown-item" href="/admin/product">Quản lý</a></li>
 						</th:block>
 						<th:block th:if="${#request.remoteUser}">
 							<li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
-							<li><a class="dropdown-item" th:href="@{/order/list}">Lịch sử mua hàng</a></li>
 							<li>
 								<hr class="dropdown-divider">
 							</li>

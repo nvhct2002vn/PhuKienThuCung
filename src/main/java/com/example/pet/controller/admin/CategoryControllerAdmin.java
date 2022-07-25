@@ -1,4 +1,4 @@
-package com.example.pet.controller;
+package com.example.pet.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,14 +10,12 @@ import com.example.pet.entities.Category;
 import com.example.pet.repository.CategoryRepository;
 
 @Controller
-public class CategoryController {
+public class CategoryControllerAdmin {
 	@Autowired
 	CategoryRepository categoryRepository;
 	
-	@RequestMapping("/category/{id}")
-	public String cateDetail(Model model ,@PathVariable("id") Integer id) {
-		Category category = this.categoryRepository.findById(id).get();
-		model.addAttribute("category", category);
-		return "/views/main/categoryDetail";
+	@RequestMapping("/admin/category")
+	public String admin() {
+		return "/views/admin/category";
 	}
 }

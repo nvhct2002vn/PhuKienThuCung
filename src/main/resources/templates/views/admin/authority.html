@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/admin/layout/index::dynamic(~{::view})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div th:fragment="view" class="row" ng-controller="authority-ctrl">
+		<div ng-repeat="item in items" class="card col-md-2 col-12 m-5">
+			<div class="card-img-top py-3 text-center">
+				<img src="/assets/images/{{item.photo}}" class="img-fluid">
+			</div>
+			<div class="card-body row">
+				<div class="form-check col-md-6">
+					<input ng-model="form.role" class="form-check-input" type="radio" name="auth" id="admin"
+						ng-value="1">
+					<label class="form-check-label" for="admin">Admin</label>
+				</div>
+				<div class="form-check col-md-6">
+					<input ng-model="form.role" class="form-check-input" type="radio" name="auth" id="user"
+						ng-value="0">
+					<label class="form-check-label" for="user">User</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

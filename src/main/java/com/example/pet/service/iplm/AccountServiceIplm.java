@@ -1,5 +1,7 @@
 package com.example.pet.service.iplm;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,10 @@ public class AccountServiceIplm implements AccountService {
 	@Override
 	public Account findByUsername(String username) {
 		return this.accountRepository.findByUsername(username);
+	}
+
+	@Override
+	public List<Account> findAll() {
+		return this.accountRepository.findAll();
 	}
 }

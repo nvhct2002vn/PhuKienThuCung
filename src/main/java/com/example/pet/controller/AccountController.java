@@ -17,4 +17,5 @@ public class AccountController {
 		authService.loginFromOauth2(oauth2);
 		return "redirect:/";
 	}
+	
 }

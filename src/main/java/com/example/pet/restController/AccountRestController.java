@@ -1,5 +1,7 @@
 package com.example.pet.restController;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,5 +23,9 @@ public class AccountRestController {
 	@GetMapping("/{username}")
 	public Account getByUserName(@PathVariable("username") String username) {
 		return this.accountService.findByUsername(username);
+	}
+	@GetMapping("")
+	public List<Account> findAll() {
+		return this.accountService.findAll();
 	}
 }

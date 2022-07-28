@@ -23,4 +23,9 @@ public class AccountServiceIplm implements AccountService {
 	public List<Account> findAll() {
 		return this.accountRepository.findAll();
 	}
+
+	@Override
+	public Account update(Account account) {
+		return this.accountRepository.save(account);
+	}
 }

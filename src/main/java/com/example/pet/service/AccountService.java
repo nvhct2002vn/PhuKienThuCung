@@ -8,4 +8,6 @@ public interface AccountService {
 	Account findByUsername(String username);
 
 	List<Account> findAll();
+
+	Account update(Account account);
 }

@@ -53,4 +53,9 @@ public class OrderServiceIplm implements OrderService {
 		return this.orderRepository.findByUserId(user_id);
 	}
 
+	@Override
+	public Order update(Order orderData) {
+		return this.orderRepository.save(orderData);
+	}
+
 }

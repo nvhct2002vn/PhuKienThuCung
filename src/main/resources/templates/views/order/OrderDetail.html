@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<div th:fragment="view" class="row">
+	<div th:fragment="view" class="row" ng-controller="OrderDetails-ctrl">
 		<div th:objects="${order}">
 			<table class="table">
 				<thead>
@@ -35,8 +35,12 @@
 				<p>Phone number: [[${order.phoneNumber}]]</p>
 				<p>Address: [[${order.address}]]</p>
 			</div>
-			<div class="text-center">
-				<button class="btn btn-warning my-3">Huỷ đơn hàng</button>
+			<div class="text-center" th:if="${order.status == 1}">
+				<button th:attr="ng-click=@{|huyDonHang(*{id})|}" class="btn btn-warning my-3">Huỷ đơn hàng</button>
+			</div>
+			<div class="text-center" th:if="${order.status == 0}">
+				<button th:attr="ng-click=@{|datLaiDonHang(*{id})|}" class="btn btn-warning my-3">Đặt lại đơn
+					hàng</button>
 			</div>
 		</div>
 	</div>

@@ -16,4 +16,6 @@ public interface OrderService {
 
 	List<Order> findByUsername(int user_id);
 
+	Order update(Order orderData);
+
 }

@@ -28,8 +28,8 @@
           <td>[[${item.address}]]</td>
           <td>[[${item.createDate}]]</td>
           <td>
-            [[${item.status == 0?'Đã huỷ đơn hàng':item.status == 1?'Đã đặt
-            hàng':item.status == 2?'Đã xác nhận đơn hàng':'Đã thanh toán'}]]
+            [[${item.status == 0?'Đơn hàng đã bị huỷ':item.status == 1?'Đơn hàng đã được đặt':item.status == 2?'Đã xác
+            nhận đơn hàng':'Đã thanh toán'}]]
           </td>
           <td>
             <a th:href="@{|/admin/order/detail/${item.id}|}" class="btn btn-warning"><i class="bi bi-search"></i></a>

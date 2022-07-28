@@ -1,5 +1,5 @@
 app.controller("authority-ctrl", function ($scope, $http) {
-    $scope.form = {};
+    $scope.auth = {};
     $scope.items = [];
 
     let url = "http://localhost:8080/rest/account"
@@ -12,13 +12,9 @@ app.controller("authority-ctrl", function ($scope, $http) {
         });
     }
 
-    $scope.a123 = function () {
-        console.log($(`input[type=radio][name=auth1]:checked`).val());
-    };
-
-    $scope.authority_changed = function (item) {
+    $scope.authority_changed = function (item, roleGet) {
         var account = angular.copy(item)
-        account.role = 1;
+        account.role = roleGet;
         console.log("account copy: ", account);
         $http.put("/rest/account", account).then((result) => {
             $scope.items[item] = result.data;

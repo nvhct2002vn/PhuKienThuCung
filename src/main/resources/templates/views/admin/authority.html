@@ -12,20 +12,19 @@
 			<div class="card-img-top py-3 text-center">
 				<img src="/assets/images/{{item.photo}}" class="img-fluid">
 			</div>
-			<div>
-				<h4>{{item.fullname}}</h4>
+			<div class="text-center">
+				<p id="username">{{item.fullname}}</p>
 			</div>
-			<input class="form-check-input" type="radio" name="auth{{item.id}}" value="1" ng-click="a123()">
 			<div class="card-body">
 				<div class=" form-check">
 					<label for="admin{{item.id}}">Admin</label>
-					<input class="form-check-input" type="radio" name="auth{{item.id}}" value="1"
-						ng-checked="item.role == 1" ng-click="authority_changed(item)" id="admin{{item.id}}">
+					<input class="form-check-input" type="radio" name="auth{{item.id}}" ng-checked="item.role == 1"
+						ng-click="authority_changed(item,1)" id="admin{{item.id}}">
 				</div>
 				<div class=" form-check">
 					<label for="user{{item.id}}">User</label>
-					<input class="form-check-input" type="radio" name="auth{{item.id}}" value="0"
-						ng-checked="item.role == 0" ng-click="authority_changed(item)" id="user{{item.id}}">
+					<input class="form-check-input" type="radio" name="auth{{item.id}}" ng-checked="item.role == 0"
+						ng-click="authority_changed(item,0)" id="user{{item.id}}">
 				</div>
 			</div>
 		</div>

@@ -56,6 +56,7 @@ const app = angular
     };
 
     $scope.order = {
+      totalMoney: $scope.cart.amount,
       createDate: new Date(),
       phoneNumber: "",
       address: "",

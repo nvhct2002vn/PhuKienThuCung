@@ -38,6 +38,8 @@ public class Order implements Serializable {
 	private String phoneNumber;
 	@Column(nullable = false, length = 255)
 	private String address;
+	@Column(name = "total_money", nullable = false, precision = 10)
+	private Double totalMoney;
 	@Column(nullable = false, precision = 10)
 	private int status;
 	@JsonIgnore
@@ -122,6 +124,14 @@ public class Order implements Serializable {
 	 */
 	public void setAddress(String aAddress) {
 		address = aAddress;
+	}
+
+	public Double getTotalMoney() {
+		return totalMoney;
+	}
+
+	public void setTotalMoney(Double totalMoney) {
+		this.totalMoney = totalMoney;
 	}
 
 	/**

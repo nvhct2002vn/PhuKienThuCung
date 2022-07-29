@@ -34,6 +34,7 @@
 			<div>
 				<p>Phone number: [[${order.phoneNumber}]]</p>
 				<p>Address: [[${order.address}]]</p>
+				<p>Total money: [[*{#numbers.formatDecimal(order.totalMoney,0,'COMMA',0,'POINT')}]] VND</p>
 			</div>
 			<div class="text-center" th:if="${order.status == 1}">
 				<button th:attr="ng-click=@{|huyDonHang(*{id})|}" class="btn btn-warning my-3">Huỷ đơn hàng</button>

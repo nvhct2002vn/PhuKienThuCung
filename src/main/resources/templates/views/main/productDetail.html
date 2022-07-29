@@ -37,7 +37,8 @@
         <div class="my-3 text-center">
           <h3 class="m-0">Sản phẩm tương tự</h3>
         </div>
-        <div th:each="prd : *{category.product}" class="card col-md-4 m-auto my-3 p-2" style="width: 18rem">
+        <div th:each="prd : *{category.product}" th:if="${prd.status == 1}" class="card col-md-4 m-auto my-3 p-2"
+          style="width: 18rem">
           <a th:href="@{|/product/${prd.id}|}">
             <img th:src="@{|/assets/images/${prd.image}|}" class="card-img-top" alt="[[${prd.name}]]" />
           </a>

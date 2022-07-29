@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org/"
-	th:replace="~{/views/layout/index::dynamic(~{::view})}">
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/layout/index::dynamic(~{::view})}">
 
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 
 <body>
 	<div th:fragment="view" class="row">
-		<div class="col-md-3 col-12 p-0"
-			th:insert="~{/views/layout/category ::listCate}"></div>
+		<div class="col-md-3 col-12 p-0" th:insert="~{/views/layout/category ::listCate}"></div>
 		<div class="col-md-9 col-12 row" th:objects=${category}>
-			<div th:each="prd : ${category.product}"
-				class="card col-md-4 m-auto my-3 p-2" style="width: 18rem;">
-				<a th:href="@{|/product/${prd.id}|}"> <img
-					th:src="@{|/assets/images/${prd.image}|}" class="card-img-top"
-					alt="[[${prd.name}]]">
+			<div th:each="prd : ${category.product}" th:if="${prd.status == 1}" class="card col-md-4 m-auto my-3 p-2"
+				style="width: 18rem;">
+				<a th:href="@{|/product/${prd.id}|}"> <img th:src="@{|/assets/images/${prd.image}|}"
+						class="card-img-top" alt="[[${prd.name}]]">
 				</a>
 				<div class="card-body  text-center">
 					<h5 class="card-title">[[${prd.name}]]</h5>
 					<p class="card-text">[[${#numbers.formatDecimal(prd.price, 0,
 						'COMMA', 0, 'POINT')}]] VND</p>
-					<a th:href="@{|/product/${prd.id}|}"
-						class="btn btn-warning d-flex justify-content-center">Mua ngay</a>
+					<a th:href="@{|/product/${prd.id}|}" class="btn btn-warning d-flex justify-content-center">Mua
+						ngay</a>
 				</div>
 			</div>
 		</div>

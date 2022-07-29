@@ -15,6 +15,7 @@
           <th scope="col">Full Name</th>
           <th scope="col">Phone number</th>
           <th scope="col">Address</th>
+          <th scope="col">Total money</th>
           <th scope="col">Create date</th>
           <th scope="col">Status</th>
           <th scope="col">Control</th>
@@ -26,6 +27,7 @@
           <td>[[${item.account.fullname}]]</td>
           <td>[[${item.phoneNumber}]]</td>
           <td>[[${item.address}]]</td>
+          <td>[[*{#numbers.formatDecimal(item.totalMoney,0,'COMMA',0,'POINT')}]] VND</td>
           <td>[[${item.createDate}]]</td>
           <td>
             [[${item.status == 0?'Đơn hàng đã bị huỷ':item.status == 1?'Đơn hàng đã được đặt':item.status == 2?'Đã xác

@@ -24,10 +24,15 @@ app.controller("product-ctrl", function ($scope, $http) {
 
     $scope.create = function () {
         var item = angular.copy($scope.form);
-        console.log(item);
         $http.post(url, item).then((result) => {
             $scope.items.push(item);
             $scope.loadAll();
+            Swal.fire({
+                icon: 'success',
+                title: 'Tạo thành công!',
+                showConfirmButton: false,
+                timer: 1200
+            })
             $scope.refesh();
         }).catch((err) => {
             console.log(err);
@@ -45,7 +50,12 @@ app.controller("product-ctrl", function ($scope, $http) {
         $http.put(uri, item).then((result) => {
             var index = $scope.items.findIndex(item => item.id == $scope.id);
             $scope.items[index] = result.data;
-            console.log(index);
+            Swal.fire({
+                icon: 'success',
+                title: 'Sửa thành công!',
+                showConfirmButton: false,
+                timer: 1200
+            })
         }).catch((err) => {
             console.log(err);
         });
@@ -59,7 +69,12 @@ app.controller("product-ctrl", function ($scope, $http) {
         $http.put(uri, itemCp).then((result) => {
             var index = $scope.items.findIndex(itemCp => itemCp.id == item.id)
             $scope.items[index] = result.data;
-            console.log(index);
+            Swal.fire({
+                icon: 'success',
+                title: 'Xoá thành công!',
+                showConfirmButton: false,
+                timer: 1200
+            })
         }).catch((err) => {
             console.log(err);
         });

@@ -9,18 +9,21 @@
 <body>
 	<div th:fragment="view">
 		<div class="row my-5">
-			<div class="col-md-5 col-12 m-auto border p-5">
+			<div class="col-md-5 col-12 m-auto border p-3">
 				<form action="/auth/login" method="post">
 					<div>
-						<label>Username</label> <input name="username" class="form-control mb-3" />
+						<label>Tên tài khoản:</label> <input name="username" class="form-control mb-3" />
 					</div>
 					<div>
-						<label>Password</label> <input type="password" name="password" class="form-control mb-3" />
+						<label>Mật khẩu:</label> <input type="password" name="password" class="form-control mb-3" />
 					</div>
-					<input name="remember-me" type="checkbox"> remember?
+					<input name="remember-me" type="checkbox"> Ghi nhớ tài khoản?
+					<div class="float-end">
+						<a href="/register">Đăng ký tài khoản!</a>
+					</div>
 					<hr>
 					<div class="text-center">
-						<button class="btn btn-warning my-5">Login now</button>
+						<button class="btn btn-warning my-3">Login now</button>
 					</div>
 				</form>
 				<hr>

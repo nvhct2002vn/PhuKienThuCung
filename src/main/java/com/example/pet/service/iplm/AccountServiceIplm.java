@@ -25,7 +25,7 @@ public class AccountServiceIplm implements AccountService {
 	}
 
 	@Override
-	public Account update(Account account) {
+	public Account save(Account account) {
 		return this.accountRepository.save(account);
 	}
 }

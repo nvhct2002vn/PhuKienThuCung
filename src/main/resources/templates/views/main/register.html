@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" th:replace="~{/views/layout/index::dynamic(~{::view})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div th:fragment="view" ng-controller="account-ctrl">
+		<div class="row my-5">
+			<div class="col-md-5 col-12 m-auto border p-3">
+				<form class="form-group">
+					<div>
+						<label>Họ và Tên</label> <input type="text" ng-model="form.fullname"
+							class="form-control mb-3" />
+					</div>
+					<div>
+						<label>Email</label> <input type="email" ng-model="form.email" class="form-control mb-3" />
+					</div>
+					<div>
+						<label>Tên tài khoản</label> <input ng-model="form.username" class="form-control mb-3" />
+					</div>
+					<div>
+						<label>Mật khẩu</label> <input type="password" ng-model="form.password"
+							class="form-control mb-3" />
+					</div>
+					<div>
+						<label>Nhập lại mật khẩu</label> <input type="password" ng-model="form.password2"
+							class="form-control mb-3" />
+					</div>
+					<div class="">
+						<a href="/login-form">Đã có tài khoản!</a>
+					</div>
+					<hr>
+					<div class="text-center">
+						<button class="btn btn-warning my-3" ng-click="register()">Đăng ký</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

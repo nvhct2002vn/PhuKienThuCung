@@ -17,5 +17,9 @@ public class AccountController {
 		authService.loginFromOauth2(oauth2);
 		return "redirect:/";
 	}
-	
+
+	@RequestMapping("/register")
+	public String register() {
+		return "/views/main/register";
+	}
 }

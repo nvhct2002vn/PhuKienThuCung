@@ -33,7 +33,7 @@
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 						<th:block th:unless="${#request.remoteUser}">
 							<li><a class="dropdown-item" th:href="@{/login-form}">Đăng nhập</a></li>
-							<li><a class="dropdown-item" href="#">Đăng ký</a></li>
+							<li><a class="dropdown-item" href="/register">Đăng ký</a></li>
 						</th:block>
 						<th:block th:if="${#request.isUserInRole('1')}">
 							<li><a class="dropdown-item" href="/admin/order">Quản lý</a></li>

@@ -9,6 +9,12 @@ const app = angular
           if (item) {
             item.qty += $scope.quantity;
             this.saveToLocalStorage();
+            Swal.fire({
+              icon: 'success',
+              title: 'Thêm vào rỏ hàng thành công!',
+              showConfirmButton: false,
+              timer: 1200
+            })
           } else {
             $http.get(`/api/product/${id}`).then((result) => {
               result.data.qty = $scope.quantity;
@@ -20,7 +26,6 @@ const app = angular
         saveToLocalStorage() {
           var json = JSON.stringify(angular.copy(this.items));
           localStorage.setItem("cart", json);
-          console.log(localStorage.getItem("cart"));
         },
         loadFromLocalStorage() {
           var json = localStorage.getItem("cart");
@@ -41,10 +46,22 @@ const app = angular
         remove(id) {
           var index = this.items.findIndex((item) => item.id == id);
           this.items.splice(index, 1);
+          Swal.fire({
+            icon: 'success',
+            title: 'Xoá sản phẩm thành công!',
+            showConfirmButton: false,
+            timer: 1200
+          })
           this.saveToLocalStorage();
         },
         clear() {
           localStorage.clear();
+          Swal.fire({
+            icon: 'success',
+            title: 'Xoá sạch rỏ hàng thành công!',
+            showConfirmButton: false,
+            timer: 1200
+          })
           $scope.cart.loadFromLocalStorage();
         },
       });
@@ -76,25 +93,33 @@ const app = angular
       purchase() {
         // lấy username
         var username = $scope.getusername.accountget.username;
-        console.log("Lấy đc user thành công: ", username);
         $http
           .get(`/rest/account/${username}`)
           .then((result) => {
             // gán id lấy đc vào acc.id đc khai báo bên trên
             $scope.order.account.id = result.data.id;
-            console.log("Lấy được id:" + $scope.order.account.id);
             var order = angular.copy(this);
-            console.log("coppy order thành công: ", order);
             $http
               .post("/rest/orders", order)
               .then((result) => {
-                alert("Đặt hàng thành công");
                 $scope.cart.clear();
+                alert("Đặt hàng thành công!")
+                // Swal.fire({
+                //   icon: 'success',
+                //   title: 'Đặt hàng thành công!',
+                //   // text: 'Đang chuyển đến hoá đơn chi tiết',
+                //   showConfirmButton: false,
+                //   timer: 1200
+                // })
                 location.href = "/order/detail/" + result.data.id;
               })
               .catch((err) => {
-                alert("Lỗi đặt hàng");
-                console.log(err);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Đặt hàng không thành công!',
+                  showConfirmButton: false,
+                  timer: 1200
+                })
               });
           })
           .catch((err) => {

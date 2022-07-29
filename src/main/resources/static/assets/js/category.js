@@ -14,11 +14,15 @@ app.controller("category-ctrl", function ($scope, $http) {
     }
     $scope.create = function () {
         var item = angular.copy($scope.form);
-        console.log(item);
         $http.post(url, item).then((result) => {
             $scope.items.push(item);
             $scope.loadAll();
-            console.log(result.data);
+            Swal.fire({
+                icon: 'success',
+                title: 'Tạo thành công!',
+                showConfirmButton: false,
+                timer: 1200
+            })
         }).catch((err) => {
             console.log(err);
         });
@@ -35,7 +39,6 @@ app.controller("category-ctrl", function ($scope, $http) {
 
         $scope.form = angular.copy(item);
         $scope.id = item.id;
-        console.log(item);
     }
 
     $scope.update = function () {
@@ -44,6 +47,12 @@ app.controller("category-ctrl", function ($scope, $http) {
         $http.put(uri, item).then((result) => {
             $scope.items[$scope.id] = result.data;
             $scope.loadAll();
+            Swal.fire({
+                icon: 'success',
+                title: 'Sửa thành công!',
+                showConfirmButton: false,
+                timer: 1200
+            })
         }).catch((err) => {
             console.log(err);
         });
@@ -54,10 +63,15 @@ app.controller("category-ctrl", function ($scope, $http) {
         var uri = `${url}/${item.id}`;
         var item = angular.copy(item);
         item.status = 0;
-        console.log(item);
         $http.put(uri, item).then((result) => {
             $scope.items[$scope.id] = result.data;
             $scope.loadAll();
+            Swal.fire({
+                icon: 'success',
+                title: 'Xoá thành công!',
+                showConfirmButton: false,
+                timer: 1200
+            })
         }).catch((err) => {
             console.log(err);
         });

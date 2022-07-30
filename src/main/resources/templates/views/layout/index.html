@@ -17,6 +17,7 @@
 <body ng-app="app" ng-controller="shopping-cart-ctrl">
   <nav th:replace="~{/views/layout/menu ::navbar}"></nav>
   <div class="container p-0">
+    <div th:replace="~{/views/layout/changePassword ::changePasswordFrm}"></div>
     <div th:replace="${view}"></div>
   </div>
   <footer class="footer spad">

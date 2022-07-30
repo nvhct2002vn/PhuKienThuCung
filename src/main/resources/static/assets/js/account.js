@@ -2,8 +2,29 @@ app.controller("account-ctrl", function ($scope, $http) {
     $scope.auth = {};
     $scope.items = [];
     $scope.form = {};
+    $scope.changePassword = {};
+    $scope.account = {};
 
     let url = "http://localhost:8080/rest/account"
+
+    // lấy username để get user theo username để lấy ra id
+    $scope.getusername = {
+        accountget: { username: $("#username").text().trim() },
+    };
+
+    $scope.getAccountByUsername = function () {
+        var username = $scope.getusername.accountget.username;
+        console.log("Username: ", username);
+        $http
+            .get(`/rest/account/${username}`)
+            .then((result) => {
+                $scope.account = result.data;
+                console.log("Account nef: ", $scope.account);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
     $scope.loadAll = function () {
         $http.get(url).then((result) => {
@@ -78,7 +99,44 @@ app.controller("account-ctrl", function ($scope, $http) {
             });
         }
     }
+
+    $scope.changePassword = function () {
+
+        var account = angular.copy($scope.account);
+        console.log("account get: ", account);
+        if (!(account.password == $scope.changePassword.password1)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Mật khẩu hiện tại không đúng!',
+                showConfirmButton: false,
+                timer: 1200
+            })
+            return;
+        } else if (!($scope.changePassword.password2 == $scope.changePassword.password3)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Mật khẩu mới không khớp!',
+                showConfirmButton: false,
+                timer: 1200
+            })
+            return;
+        } else {
+            account.password = $scope.changePassword.password3;
+            $http.put(url, account).then((result) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Đổi mật khẩu thành công!',
+                    showConfirmButton: false,
+                    timer: 1200
+                })
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+    };
+
     $scope.loadAll();
+    $scope.getAccountByUsername();
 
 })
 

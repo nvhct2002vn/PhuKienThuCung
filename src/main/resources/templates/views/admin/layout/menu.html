@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<nav th:fragment="navbar" class="navbar_css navbar navbar-expand-lg bg-warning p-2  static-top sticky-top">
+	<nav th:fragment="navbar" class="navbar_css navbar navbar-expand-lg bg-warning p-2 sticky-top">
 		<a class="navbar-brand" href="/"> <img src="/assets/images/logo.svg" alt="Logo" height="35">
 		</a>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -24,7 +24,7 @@
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="bi bi-person-circle">
 							<th:block th:if="${#request.remoteUser}">
-								<div class="m-0 p-0 d-inline">[[${#authentication.name}]]</div>
+								<div class="m-0 p-0 d-inline" id="username">[[${#authentication.name}]]</div>
 							</th:block>
 						</i>
 					</a>
@@ -33,7 +33,8 @@
 							<li><a class="dropdown-item" href="/admin/order">Quản lý</a></li>
 						</th:block>
 						<th:block th:if="${#request.remoteUser}">
-							<li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+							<li><a href="#" class="dropdown-item" data-bs-toggle="modal"
+									data-bs-target="#changePassword">Đổi mật khẩu</a></li>
 							<li>
 								<hr class="dropdown-divider">
 							</li>

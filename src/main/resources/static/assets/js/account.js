@@ -13,6 +13,7 @@ app.controller("account-ctrl", function ($scope, $http) {
     };
 
     $scope.getAccountByUsername = function () {
+        // lấy ra username ở cái thằng tài khoản bằng jquery và tìm đối tượng đó khi vào trang, và gán vào account
         var username = $scope.getusername.accountget.username;
         console.log("Username: ", username);
         $http
@@ -52,6 +53,7 @@ app.controller("account-ctrl", function ($scope, $http) {
     }
 
     $scope.register = function () {
+        //khi mới vào trang sẽ get ra tất cả account truyền vào items. rồi lấy username và item bằng cách duyệt cái list items đó tìm thằng username và email trùng.
         var usernameGet = $scope.form.username;
         var username = $scope.items.find((username) => username.username == usernameGet);
 
@@ -101,7 +103,7 @@ app.controller("account-ctrl", function ($scope, $http) {
     }
 
     $scope.changePassword = function () {
-
+        // có đối tượng account khi vào trang
         var account = angular.copy($scope.account);
         console.log("account get: ", account);
         if (!(account.password == $scope.changePassword.password1)) {

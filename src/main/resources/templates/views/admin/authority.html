@@ -7,9 +7,40 @@
 </head>
 
 <body>
-	<div th:fragment="view" class="row" ng-controller="account-ctrl">
-		<div ng-repeat="item in items" class="card col-md-2 col-12 m-5">
-			<div class="card-img-top py-3 text-center">
+	<div th:fragment="view" ng-controller="account-ctrl">
+		<table class="table table align-middle">
+			<thead>
+				<tr>
+					<th scope="col">Full name</th>
+					<th scope="col">Username</th>
+					<th scope="col">Email</th>
+					<th scope="col">Avatar</th>
+					<th scope="col">Role</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items">
+					<th scope="row">{{item.fullname}}</th>
+					<td>{{item.username}}</td>
+					<td>{{item.email}}</td>
+					<td><img src="/assets/images/{{item.photo}}" style="max-height : 55px;"></td>
+					<td>
+						<div class=" form-check">
+							<label for="admin{{item.id}}">Admin</label>
+							<input class="form-check-input" type="radio" name="auth{{item.id}}"
+								ng-checked="item.role == 1" ng-click="authority_changed(item,1)" id="admin{{item.id}}">
+						</div>
+						<div class=" form-check">
+							<label for="user{{item.id}}">User</label>
+							<input class="form-check-input" type="radio" name="auth{{item.id}}"
+								ng-checked="item.role == 0" ng-click="authority_changed(item,0)" id="user{{item.id}}">
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- <div class="card-img-top py-3 text-center">
 				<img src="/assets/images/{{item.photo}}" class="img-fluid">
 			</div>
 			<div class="text-center">
@@ -26,8 +57,7 @@
 					<input class="form-check-input" type="radio" name="auth{{item.id}}" ng-checked="item.role == 0"
 						ng-click="authority_changed(item,0)" id="user{{item.id}}">
 				</div>
-			</div>
-		</div>
+			</div> -->
 	</div>
 </body>
 

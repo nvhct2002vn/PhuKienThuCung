@@ -9,7 +9,7 @@ import com.example.pet.entities.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 
-	@Query("SELECT acc FROM Account acc WHERE acc.username LIKE :username")
+	@Query("SELECT acc FROM Account acc WHERE acc.username =:username")
 	public Account findByUsername(String username);
 
 }

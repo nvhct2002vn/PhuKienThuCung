@@ -30,8 +30,22 @@
           <td>[[*{#numbers.formatDecimal(item.totalMoney,0,'COMMA',0,'POINT')}]] VND</td>
           <td>[[${item.createDate}]]</td>
           <td>
-            [[${item.status == 0?'Đã huỷ đơn hàng':item.status == 1?'Đã đặt đơn hàng':item.status == 2?'Đơn hàng
-            đã được xác nhận':'Đơn hàng đã thanh toán'}]]
+            <!-- [[${item.status == 0?'Đã huỷ đơn hàng':item.status == 1?'Đã đặt đơn hàng':item.status == 2?'Đơn hàng
+            đã được xác nhận':'Đơn hàng đã thanh toán'}]] -->
+            <th:block th:switch="${item.status}">
+              <th:block th:case="0">
+                <span class="text-danger">Đã huỷ đơn hàng</span>
+              </th:block>
+              <th:block th:case="1">
+                <span class="text-primary">Đã đặt đơn hàng</span>
+              </th:block>
+              <th:block th:case="2">
+                <span class="text-success">Đơn hàng đã được xác nhận</span>
+              </th:block>
+              <th:block th:case="3">
+                <span class="text-info">Đơn hàng đã thanh toán</span>
+              </th:block>
+            </th:block>
           </td>
           <td>
             <a th:href="@{|/order/detail/${item.id}|}" class="btn btn-warning"><i class="bi bi-search"></i></a>
